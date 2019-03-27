@@ -1,0 +1,50 @@
+div.weather {
+    background-color: rgba(255, 255, 255, 0.0);
+    height: 80px;
+    width: 250px;
+    color: white;
+    text-align: right;
+ }
+
+ div.weather_icon {
+    background-color: rgba(255, 255, 255, 0.0);
+    color:white;
+    height: 40px;
+    width: 250px;
+ }
+
+ div.weather > div {
+     display: inline-block;
+     position: absolute;
+     top: 1rem;
+     left: 2rem;
+ }
+ 
+
+ div.cloud {
+    font-size: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
+    vertical-align: middle;
+ }
+
+ div.region_temp {
+     vertical-align: middle;
+     text-align: right;
+     margin-right: 10px;
+ }
+
+ div.region_temp > p {
+     margin: 0;
+     margin-top: 3px;
+ }
+
+ div.weather_icon > i {
+     margin-left: 52px;
+ }
+
+ div.weather_txt > span {
+     font-size: 12px;
+     margin: 0;
+     margin-left: 42px;
+ }
