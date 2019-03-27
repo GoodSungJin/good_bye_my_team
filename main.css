@@ -4,8 +4,6 @@
 
 body>.modal-backdrop{
     opacity: unset!important;
-
-
 }
 
 body>.modal-backdrop{
@@ -19,11 +17,14 @@ a{
 
 span{
     font-size: 1.3em;
-
 }
 
 #calendar{
-    width: 90em;
+    width: 50em;
     margin: 0 auto;
-    margin-top: 7em;
+    margin-bottom: 1%;
+    z-index: -1;
+    color:pink;
+    font-weight: 700;
+    /* margin-top: 7em; */
 }

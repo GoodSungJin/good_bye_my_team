@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         plugins: ['dayGrid']
     });
     calendar.render();
-    calendar.setOption('height', 800);
+    calendar.setOption('height', 450);
     
 });
 

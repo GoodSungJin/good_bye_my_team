@@ -1,3 +1,5 @@
+
+
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -22,6 +24,7 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block"; 
   dots[slideIndex-1].className += " active";
 }
+
 
 
     // 리얼타임을 화면에 표시---------------------------------------------------------------------
@@ -69,3 +72,4 @@ function showSlides(n) {
 
     // 날짜를 html에 매핑
     $('.date').html('<p class="current_date">' + year +'.'+month+'.'+day+'</p>');
+    
