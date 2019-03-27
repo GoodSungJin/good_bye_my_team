@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="to_do.css">
+  <link rel="stylesheet" href="weather.css">
+  <link rel="stylesheet" href="./css/weather-icons-wind.css">
+  <link rel="stylesheet" href="./css/weather-icons.css">
+</head>
+
+<body>
+  <!-- Slideshow container -->
+  <div class="slideshow-container">
+    <!-- 첫번째 슬라이드 -->
+    <div class="mySlides fade" style="width:100%" id="slide1">
+      <!-- 히든으로 감춰진 div(위에 공간을 주는 용도-->
+      <div><span class="ghost">fkjkdfjdk</span></div>
+      <div class="date"></div>
+      <div class="clock"></div>
+      <div class="to_do_text_wrapper"><input type="text" class="to_do_text"></div>
+      <!-- 현준 컨텐츠-->
+      <div id="3"></div>
+      <!-- Dot -->
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+      </div>
+      <!-- 날씨 -->
+      <div class="weather">
+        <div class="cloud"></div>
+        <div class="region_temp">
+          <p class="temp"></p>
+          <p class="description"></p>
+          <p class="country"></p>
+        </div>
+      </div>
+    </div>
+  
+<!-- 두번째 슬라이드-->
+  <div class="mySlides fade" style="width:100%" id="slide2">
+    <div style="text-align:center">
+      <!-- 성진 컨텐츠 -->
+      <div id="2"></div>
+      <!-- 현준 컨텐츠-->
+      <div id="3"></div>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+  </div>
+</div>
+  <script src="to_do.js"></script>
+  <script src="weather.js"></script>
+</body>
+
+</html>
