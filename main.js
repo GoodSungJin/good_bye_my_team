@@ -66,7 +66,8 @@ function load(){
         $('.fc-title').append(add());
         $('td>a>div.fc-content').attr('data-toggle', 'modal');
         $('td>a>div.fc-content').attr('data-target', '#click_modal');
-        $('.text_inner').append(content[key][1]);
+        $().append(content[key][1]);
+        console.log(key,content[key][1])
         
     }
     
