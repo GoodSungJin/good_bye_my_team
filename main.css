@@ -1,0 +1,29 @@
+.modal-header{
+    padding: 0.5rem 1rem!important;
+}
+
+body>.modal-backdrop{
+    opacity: unset!important;
+
+
+}
+
+body>.modal-backdrop{
+    z-index: unset!important;
+    background-color: unset!important;
+}
+
+a{
+    background-color: #b1bfff!important;
+}
+
+span{
+    font-size: 1.3em;
+
+}
+
+#calendar{
+    width: 90em;
+    margin: 0 auto;
+    margin-top: 7em;
+}
