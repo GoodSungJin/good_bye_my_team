@@ -1,5 +1,5 @@
 div.weather {
-    background-color: royalblue;
+    background-color: rgba(255, 255, 255, 0.0);
     height: 80px;
     width: 250px;
     color: white;
@@ -7,14 +7,17 @@ div.weather {
  }
 
  div.weather_icon {
-    background-color: #f3f3f3;
-    color:royalblue;
+    background-color: rgba(255, 255, 255, 0.0);
+    color:white;
     height: 40px;
     width: 250px;
  }
 
  div.weather > div {
      display: inline-block;
+     position: absolute;
+     top: 1rem;
+     left: 2rem;
  }
  
 
@@ -37,11 +40,11 @@ div.weather {
  }
 
  div.weather_icon > i {
-     margin-left: 45px;
+     margin-left: 52px;
  }
 
  div.weather_txt > span {
      font-size: 12px;
      margin: 0;
-     margin-left: 36px;
+     margin-left: 42px;
  }
