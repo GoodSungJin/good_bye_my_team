@@ -8,7 +8,7 @@ body,html {
 
 #slide1 {
     background: url('./images/blue.jpg');
-    height: 100vh;
+    height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -16,10 +16,10 @@ body,html {
 
 #slide2 {
     background: url('./images/minions.jpg');
-    height: 100vh;
+    height: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 
 /* Slideshow container */
