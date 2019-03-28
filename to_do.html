@@ -6,7 +6,6 @@
   <title>Document</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="to_do.css">
   <link rel="stylesheet" href="weather.css">
   <link rel="stylesheet" href="./css/weather-icons-wind.css">
   <link rel="stylesheet" href="./css/weather-icons.css">
@@ -20,6 +19,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href = "Dallmoon_css.css">
   <link rel="stylesheet" href="./malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css">
+  <link rel="stylesheet" href="to_do.css">
 </head>
 
 <body>
@@ -28,12 +28,14 @@
     <!-- 첫번째 슬라이드 -->
     <div class="mySlides" style="width:100%" id="slide1">
       <!-- 히든으로 감춰진 div(위에 공간을 주는 용도-->
-      <div><span class="ghost">fkjkdfjdk</span></div>
+      <div><span class="ghost">ghost</span></div>
+      <!-- 포스트잇 들어가는 부분-->
+      <div class="postit_wrapper"></div>
       <div class="date"></div>
       <div class="clock"></div>
-      <div class="to_do_text_wrapper"><input type="text" class="to_do_text"></div>
-      <!-- 현준 컨텐츠-->
-      <div id="3"></div>
+      <div class="to_do_text_wrapper">
+          <input type="text" class="to_do_text" placeholder="What is your focus?">
+      </div>
       <!-- Dot -->
       <div style="text-align:center">
         <span class="dot" onclick="currentSlide(1)"></span>
@@ -54,7 +56,6 @@
 <!-- 두번째 슬라이드-->
   <div class="mySlides" style="width:100%" id="slide2">
     <div style="text-align:center">
-      <!-- 성진 컨텐츠 -->
       <div id='calendar'></div>
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -81,8 +82,6 @@
               </div>
           </div>
       </div>
-      <!-- 현준 컨텐츠-->
-      <div id="3"></div>
       <span class="dot" onclick="currentSlide(1)"></span>
       <span class="dot" onclick="currentSlide(2)"></span>
     </div>
@@ -138,7 +137,7 @@
       <img class= "D_sideicon1" src="./Dallmoon_image/social-addthis.png" alt="">
   </div>
   
-  
+
 
 </div>
 <div class="D_sidebar_sub">
@@ -206,11 +205,11 @@
 
   <script src="to_do.js"></script>
   <script src="weather.js"></script>
+  <script src="main.js"></script>
+  <script src="Dallmoon_script.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
-  <script src="main.js"></script>
-  <script src="Dallmoon_script.js"></script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleSectionalElementInit&ug=section&hl=ko"></script>
   <script src="./malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.concat.min.js"></script>
 </body>
