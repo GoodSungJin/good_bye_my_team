@@ -8,7 +8,7 @@ body,html {
 
 #slide1 {
     background: url('./images/blue.jpg');
-    height: 100%;
+    height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -16,10 +16,12 @@ body,html {
 
 #slide2 {
     background: url('./images/minions.jpg');
-    height: 100%;
+    height: 100vh;
     background-position: 0 0;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+    
+ 
 }
 
 /* Slideshow container */
@@ -46,29 +48,12 @@ body,html {
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
+  /* margin-bottom: 112.5px; */
 }
 
 .active, .dot:hover {
   background-color: white;
 }
-
-/* Fading animation */
-/* .fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-} */
 
 div.clock {
     color: white;
@@ -92,7 +77,7 @@ div.date {
     font-weight: 400;
     font-size:1.725rem;
     text-align: center;
-    margin-top: 7rem;
+    margin-top: 12rem;
 }
 
 span.tictok,p.current_date {
@@ -128,7 +113,7 @@ p.current_date {
 
 .to_do_text_wrapper {
     text-align: center;
-    margin-bottom: 7rem;
+    margin-bottom: 15rem;
 }
 
  .postit > div{
@@ -193,3 +178,85 @@ p.current_date {
 #dragPostIt {
   cursor: move;
 }
+
+/* .change_img {
+  position: absolute;
+  bottom: 50px;
+  right: 100px;
+} */
+
+.toggle_img {
+    display:block;
+    position: absolute;
+    bottom:25px;
+    right:140px;
+    cursor: pointer;
+}
+
+.chimg_modal {
+  display: none; /* Hidden by default */
+  position: absolute; /* Stay in place */
+  z-index: 3; /* Sit on top */
+  right: 140px;
+  bottom: 70px; 
+  width: 360px; /* Full width */
+  height: 210px; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  /* background-color: rgb(0,0,0); Fallback color */
+  /* background-color: rgba(0,0,0,0.4); Black w/ opacity */
+  background-color: white;
+  border-radius: 4px;
+}
+
+.img_theme {
+   height: 50px;
+   background-color: white;
+   border-bottom: 1px solid #ddd;
+   text-align: center;
+   font-size: 2rem;
+   font-weight: 600;
+   color: gray;
+}
+
+.back_img {
+  height: 65px;
+  width: 100px;
+  border:1px solid #ddd;
+  display:inline-block;
+  cursor: pointer;
+  background-color: black;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.back_wrapper  {
+  padding-top:12px;
+  padding-left: 25px;
+}
+
+.theme_img {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius:3px;
+}
+
+.img_name {
+  display:none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+}
+
+.back_img:hover .img_name{
+  display:block;
+}
+.back_img:hover .theme_img{
+  opacity: 0.5;
+}
+

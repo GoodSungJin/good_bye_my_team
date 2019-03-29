@@ -11,8 +11,8 @@ body>.modal-backdrop{
     background-color: unset!important;
 }
 
-a{
-    background-color: #b1bfff!important;
+.fc-content {
+    background-color: #5a5a5a;
 }
 
 /* span{
@@ -20,11 +20,20 @@ a{
 } */
 
 #calendar{
-    width: 50em;
+    width: 73em;
     margin: 0 auto;
     margin-bottom: 1%;
     z-index: -1;
     color:pink;
     font-weight: 700;
-    /* margin-top: 7em; */
+    
+}
+
+.fc-view > table{
+    background: rgba(0, 0, 0, 0.3);
+
+}
+
+.fc-unthemed td.fc-today {
+    background: #bf292999!important;
 }
