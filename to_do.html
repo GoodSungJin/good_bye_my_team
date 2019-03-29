@@ -6,7 +6,6 @@
   <title>Document</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="to_do.css">
   <link rel="stylesheet" href="weather.css">
   <link rel="stylesheet" href="./css/weather-icons-wind.css">
   <link rel="stylesheet" href="./css/weather-icons.css">
@@ -20,26 +19,30 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href = "Dallmoon_css.css">
   <link rel="stylesheet" href="./malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css">
+  <link rel="stylesheet" href="to_do.css">
+  <link rel="stylesheet" href="./Material-Design-Calculator-jQuery/css/creative.css">
 </head>
 
 <body>
-  <!-- Slideshow container -->
+  <!-- Slideshow container -------------------------------------------------------->
   <div class="slideshow-container">
     <!-- 첫번째 슬라이드 -->
     <div class="mySlides" style="width:100%" id="slide1">
-      <!-- 히든으로 감춰진 div(위에 공간을 주는 용도-->
-      <div><span class="ghost">fkjkdfjdk</span></div>
+      <!-- 히든으로 감춰진 div(위에 공간을 주는 용도----------------------------------->
+      <div><span class="ghost">ghost</span></div>
+      <!-- 포스트잇 들어가는 부분----------------------------------------------------->
+      <div class="postit_wrapper"></div>
       <div class="date"></div>
       <div class="clock"></div>
-      <div class="to_do_text_wrapper"><input type="text" class="to_do_text"></div>
-      <!-- 현준 컨텐츠-->
-      <div id="3"></div>
-      <!-- Dot -->
+      <div class="to_do_text_wrapper">
+          <input type="text" class="to_do_text" placeholder="What is your focus?">
+      </div>
+      <!-- Dot---------------------------------------------------------------------->
       <div style="text-align:center">
         <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
       </div>
-      <!-- 날씨 -->
+      <!-- 날씨--------------------------------------------------------------------->
       <div class="weather">
         <div class="cloud"></div>
         <div class="region_temp">
@@ -48,170 +51,329 @@
           <p class="country"></p>
         </div>
       </div>
-
+     <!-- 배경 바꾸기 --------------------------------------------------------------->
+     <div class="toggle_img"> 
+        <!-- <button class="change_img">열기</button>  -->
+        <img src="./images/picture.png" class="change_img">
+     </div>
+      <div id="my_modal" class="chimg_modal">
+          <div class="img_theme">배경테마</div>
+          <div class="back_wrapper">
+          <div id="back_img1" class="back_img" >
+            <img src="./images/night.jpg" id="theme_img1" class="theme_img">
+            <div class="img_name">서울의 달</div>
+          </div>
+          <div id="back_img2" class="back_img">
+                <img src="./images/macaroons.jpg" id="theme_img2" class="theme_img">
+                <div class="img_name">핑크핑크 마카롱</div>
+          </div>
+          <div id="back_img3" class="back_img">
+                <img src="./images/redpanda.jpg" id="theme_img3" class="theme_img">
+                <div class="img_name">메롱메롱</div>
+          </div>
+          <div id="back_img4" class="back_img">
+                <img src="./images/vacation.jpg" id="theme_img4" class="theme_img">
+                <div class="img_name">여유로운 휴가</div>
+          </div>
+          <div id="back_img5" class="back_img">
+                <img src="./images/steel_ladder.jpg" id="theme_img5" class="theme_img">
+                <div class="img_name">수영장</div>
+          </div>
+          <div id="back_img6" class="back_img">
+                <img src="./images/blue.jpg" id="theme_img6" class="theme_img">
+                <div class="img_name">파아란 창문</div>
+          </div>
+        </div>
+      </div>
+      <img src="./images/enterence.png" class="D_hide_sidebar">
     </div>
   
-<!-- 두번째 슬라이드-->
-  <div class="mySlides" style="width:100%" id="slide2">
+<!-- 두번째 슬라이드---------------------------------------------------------------------------->
+  <div class="mySlides" id="slide2">
     <div style="text-align:center">
-      <!-- 성진 컨텐츠 -->
-      <div id='calendar'></div>
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalCenterTitle">제목</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                      </button>
-                  </div>
-                  <div class="modal-body">
-                      <input type="text" id="input_title" name="input_title">
-                  </div>
-                  <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalCenterTitle">내용</h5>
-                  </div>
-                  <div class="modal-body">
-                      <input type="text" id="input_value" name="input_value">
-                  </div>
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary" id="input_save" data-dismiss="modal">Save</button>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- 현준 컨텐츠-->
-      <div id="3"></div>
-      <span class="dot" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-    </div>
+        <div><span class="ghost">ghost</span></div>
+        <div id='calendar' ></div>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">제목</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="input_title" name="input_title">
+                    </div>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">내용</h5>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="input_value" name="input_value">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="input_save" data-dismiss="modal">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="click_modal" tabindex="-1" role="dialog" aria-labelledby="click_modal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">제목</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <span class="text_inner"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn_remove" data-dismiss="modal">Remove</button>
+                        <button type="button" class="btn btn-secondary btn_reset" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottm_margin">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
   </div>
+    <img src="./images/enterence.png" class="D_hide_sidebar">
 </div>
 
 
 
-
-
-
+<!---사이드바-------------------------------------------------------------------------------------->
 <div class="D_sidebar">
-  <div class= "D_sideicon D_quick_search">
-      <div class="content-container">
-          <div class="D_sideicon_sub D_quick_search_sub">검색</div>
-      </div>
-      <img class= "D_sideicon1" src="./Dallmoon_image/Very-Basic-Search-icon.png" alt="" >
-  </div>
-  <div class= "D_sideicon D_tools">
-      <div class="content-container">
-          <div class="D_sideicon_sub D_tools_sub">도구</div>
-      </div>
-      <img class= "D_sideicon1" src="./Dallmoon_image/Tools.png" alt="">
-  </div>
-  <div class= "D_sideicon D_memo">
-          <div class="content-container">
-                  <div class="D_sideicon_sub D_memo_sub">메모</div>
-          </div>
-      <img class= "D_sideicon1" src="./Dallmoon_image/book.png" alt="">
-  </div>
-  <div class= "D_sideicon D_bookmark">
-          <div class="content-container">
-                  <div class="D_sideicon_sub D_bookmark_sub">북마크</div>
-          </div>  
-      <img class= "D_sideicon1" src="./Dallmoon_image/f5194827c158270b9b6b6d3d96766368.png" alt="">
-  </div>
-  <div class= "D_sideicon D_translation">
-          <div class="content-container">
-                  <div class="D_sideicon_sub D_translation_sub">번역</div>
-          </div>
-      <img class= "D_sideicon1" src="./Dallmoon_image/다운로드.jpg" alt="">
-  </div>
-  <div class= "D_sideicon D_music">
-          <div class="content-container">
-                  <div class="D_sideicon_sub D_music_sub">음악</div>
-          </div>
-      <img class= "D_sideicon1" src="./Dallmoon_image/social-soundcloud.png" alt="">
-  </div>
-  <div class= "D_sideicon D_plus">
-          <div class="content-container">
-                  <div class="D_sideicon_sub D_plus_sub">추가</div>
-          </div>
-      <img class= "D_sideicon1" src="./Dallmoon_image/social-addthis.png" alt="">
-  </div>
-  
-  
+    <div class= "D_sideicon D_quick_search">
+        <div class="content-container">
+            <div class="D_sideicon_sub D_quick_search_sub">검색</div>
+        </div>
+        <img class= "D_sideicon1" src="./Dallmoon_image/Very-Basic-Search-icon.png" alt="" >
+    </div>
+    <div class= "D_sideicon D_tools">
+        <div class="content-container">
+            <div class="D_sideicon_sub D_tools_sub">도구</div>
+        </div>
+        <img class= "D_sideicon1" src="./Dallmoon_image/Tools.png" alt="">
+    </div>
+    <div class= "D_sideicon D_memo">
+            <div class="content-container">
+                    <div class="D_sideicon_sub D_memo_sub">메모</div>
+            </div>
+        <img class= "D_sideicon1" src="./Dallmoon_image/book.png" alt="">
+    </div>
+    <div class= "D_sideicon D_bookmark">
+            <div class="content-container">
+                    <div class="D_sideicon_sub D_bookmark_sub">북마크</div>
+            </div>  
+        <img class= "D_sideicon1" src="./Dallmoon_image/f5194827c158270b9b6b6d3d96766368.png" alt="">
+    </div>
+    <div class= "D_sideicon D_translation">
+            <div class="content-container">
+                    <div class="D_sideicon_sub D_translation_sub">번역</div>
+            </div>
+        <img class= "D_sideicon1" src="./Dallmoon_image/다운로드.jpg" alt="">
+    </div>
+    <div class= "D_sideicon D_music">
+            <div class="content-container">
+                    <div class="D_sideicon_sub D_music_sub">음악</div>
+            </div>
+        <img class= "D_sideicon1" src="./Dallmoon_image/social-soundcloud.png" alt="">
+    </div>
+    <div class= "D_sideicon D_plus">
+            <div class="content-container">
+                    <div class="D_sideicon_sub D_plus_sub">추가</div>
+            </div>
+        <img class= "D_sideicon1" src="./Dallmoon_image/social-addthis.png" alt="">
+    </div>
+    
+    
 
 </div>
 <div class="D_sidebar_sub">
-  <div class="asd">
-      <div class="D_sidebar_sub_test D_sidebar_sub_quick_search">
-          <gcse:search></gcse:search>
-      </div>
-      <div class="D_sidebar_sub_test D_sidebar_sub_tools">
-          <div class="D_tools_sub1">
-              <span class="D_tools_sub1_title">도구모음</span>
-          </div>
-          <div class="D_tools_sub2 D_tools_sub2_timer">
-              
-                  <div class="D_timer">
-                      타이머
-                  </div>
-                  <img src="./Dallmoon_image/Very-Basic-Search-icon-arrow.png" class="D_arrow" alt="">
-                  <div class="D_timer_sub">
-                      asd
-                  </div>
-          </div>
-          <div class="D_tools_sub2 D_tools_sub2_calc">
-              
-                  <div class="D_calc">
-                      계산기
-                  </div>
-                  <img src="./Dallmoon_image/Very-Basic-Search-icon-arrow.png" class="D_arrow" alt="">
-                  <div class="D_calc_sub">
-                      asd
-                  </div>
-          </div>
-          
-          <div class="D_tools_sub2 D_tools_sub2_economy">
-              
-                  <div class="D_economy">
-                      환율
-                  </div>
-                  <img src="./Dallmoon_image/Very-Basic-Search-icon-arrow.png" class="D_arrow" alt="">
-                  <div class="D_economy_sub">
-                      asd
-                  </div>
-          </div>
+    <div class="asd">
+        <div class="D_sidebar_sub_test D_sidebar_sub_quick_search">
+            <gcse:search></gcse:search>
+        </div>
+        <div class="D_sidebar_sub_test D_sidebar_sub_tools">
+            <div class="D_tools_sub1">
+                <span class="D_tools_sub1_title">도구모음</span>
+            </div>
+            <div class="D_tools_sub2 D_tools_sub2_timer">
+                
+                    <div class="D_timer">
+                        타이머
+                    </div>
+                    <img src="./Dallmoon_image/Very-Basic-Search-icon-arrow.png" class="D_arrow" alt="">
+            </div>
+                    <div class="D_timer_sub">
+                            <span class="timer"></span>
+                            <p><button class="btn D_start">Start</button>
+                                <button class="btn btn-warning D_stop">Stop</button>  
+                                <button class="btn btn-success D_reset">Resume</button></p>
+                                <input class="D_timer_input">
+                           
 
-      </div>
-      <div class="D_sidebar_sub_test D_sidebar_sub_memo">
-          <div class="D_memo_sub1">
-              <span class="D_memo_sub1_title">메모</span>
-          </div>
-          <form class="D_memo_form">
-              <input type="text" class="D_memo_input form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="D_memo_input" placeholder="내용을 입력하세요">
-              <input type="submit" value="저장" class="D_memo_submit btn btn-outline-dark">
-              
-          </form>
-          <button class="D_memo_load">불러오기</button>
-      </div>
-      <div class="D_sidebar_sub_test D_sidebar_sub_translation">
-         <iframe src="https://translate.kakao.com/" frameborder="1000"></iframe>
-      </div>
-      <div class="D_sidebar_sub_test D_sidebar_sub_bookmark"></div>
-      <div class="D_sidebar_sub_test D_sidebar_sub_plus"></div>
-      <div class="D_sidebar_sub_test D_sidebar_sub_music"></div>
-  </div>
+                    </div>
+                    
+            <div class="D_tools_sub2 D_tools_sub2_calc">
+                
+                    <div class="D_calc">
+                        계산기
+                    </div>
+                    <img src="./Dallmoon_image/Very-Basic-Search-icon-arrow.png" class="D_arrow" alt="">
+                </div>
+                    <div class="D_calc_sub">
+                            <div class="col-md-12 col-md-offset-12 calculator" align="center">
+                                    <div class="row displayBox">
+                                      <p class="displayText" id="display">0</p>
+                                    </div>
+                                    <div class="row numberPad">
+                                      <div class="col-md-9">
+                                        <div class="row">
+                                          <button class="btn clear hvr-back-pulse" id="clear">C</button>
+                                          <button class="btn btn-calc hvr-radial-out" id="sqrt">√</button>
+                                          <button class="btn btn-calc hvr-radial-out hvr-radial-out" id="square">x<sup>2</sup></button>
+                                        </div>
+                                        <div class="row">
+                                          <button class="btn btn-calc hvr-radial-out" id="seven">7</button>
+                                          <button class="btn btn-calc hvr-radial-out" id="eight">8</button>
+                                          <button class="btn btn-calc hvr-radial-out" id="nine">9</button>
+                                        </div>
+                                        <div class="row">
+                                          <button class="btn btn-calc hvr-radial-out" id="four">4</button>
+                                          <button class="btn btn-calc hvr-radial-out" id="five">5</button>
+                                          <button class="btn btn-calc hvr-radial-out" id="six">6</button>
+                                        </div>
+                                        <div class="row">
+                                          <button class="btn btn-calc hvr-radial-out" id="one">1</button>
+                                          <button class="btn btn-calc hvr-radial-out" id="two">2</button>
+                                          <button class="btn btn-calc hvr-radial-out" id="three">3</button>
+                                        </div>
+                                        <div class="row">
+                                          <button class="btn btn-calc hvr-radial-out" id="plus_minus">&#177;</button>
+                                          <button class="btn btn-calc hvr-radial-out" id="zero">0</button>
+                                          <button class="btn btn-calc hvr-radial-out" id="decimal">.</button>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-3 operationSide">
+                                        <button id="divide" class="btn btn-operation hvr-fade">÷</button>
+                                        <button id="multiply" class="btn btn-operation hvr-fade">×</button>
+                                        <button id="subtract" class="btn btn-operation hvr-fade">−</button>
+                                        <button id="add" class="btn btn-operation hvr-fade">+</button>
+                                        <button id="equals" class="btn btn-operation equals hvr-back-pulse">=</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                    </div>
+
+        </div>
+        <div class="D_sidebar_sub_test D_sidebar_sub_memo">
+            <div class="D_memo_sub1">
+                <span class="D_memo_sub1_title">메모</span>
+            </div>
+            
+            <form class="D_memo_form">
+            <div class="D_memo_form_div">
+                <input type="text" class="D_memo_input form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="D_memo_input" placeholder="내용을 입력하세요">
+                <input type="submit" value="저장" class="D_memo_submit btn btn-outline-dark" >
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button> -->
+            </div>
+                
+            </form>
+            
+            
+            
+        </div>
+        
+        <div class="D_sidebar_sub_test D_sidebar_sub_translation">
+           <iframe src="https://translate.kakao.com/"></iframe>
+        </div>
+        <div class="D_sidebar_sub_test D_sidebar_sub_bookmark">
+            
+            <DL><p>
+                
+                
+                <DT class="D_bookmark_lineheight">
+                        <img src="./Dallmoon_image/Star-icon.png" alt="" class="D_bookmark_star">
+                        <H3 ADD_DATE="1551759765" LAST_MODIFIED="1553675175" PERSONAL_TOOLBAR_FOLDER="true">북마크</H3>
+                    <button class="D_bookmark_add btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal">북마크 추가..</button>
+                    
+                </DT>
+                <hr>
+                <DL>
+                    <form class="D_bookmark_list">
+                        
+                    </form><div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">북마크 추가</h5>
+                                    <button type="button" class="close D_close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                
+                                <div class="modal-body">
+                                    
+                                        <label for="basic-url">Your vanity URL</label>
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">사이트 주소</span>
+                                          </div>
+                                          <input type="text" class="form-control D_site_url" name="D_site_url" id="basic-url" aria-describedby="basic-addon3">
+                                        </div>
+                                        
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text ">사이트 명</span>
+                                          </div>
+                                          <input type="text" class="form-control D_sitename" name="D_sitename">
+                                          
+                                        </div>
+                                        
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <input type="submit" class="btn btn-primary D_bookmark_save" value="save" data-dismiss="modal">
+                                    </div>
+                                </div>
+                                
+                                </div>
+                                
+                            </div>
+                    </div>
+
+                </DL><p>
+            </DL><p>
+            <!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  
+        </div>
+        <div class="D_sidebar_sub_test D_sidebar_sub_plus"></div>
+        <div class="D_sidebar_sub_test D_sidebar_sub_music"></div>
+    </div>
 </div>
 
 
   <script src="to_do.js"></script>
   <script src="weather.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
   <script src="main.js"></script>
   <script src="Dallmoon_script.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
   <script src="//translate.google.com/translate_a/element.js?cb=googleSectionalElementInit&ug=section&hl=ko"></script>
   <script src="./malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="./Material-Design-Calculator-jQuery/js/calculate.js"></script>
+<script src="./Count-Up-Timer-Stopwatch-jQuery-Countimer/dist/ez.countimer.min.js"></script>    
 </body>
 </html>

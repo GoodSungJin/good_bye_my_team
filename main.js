@@ -10,46 +10,28 @@ document.addEventListener('DOMContentLoaded', function() {
             title: input_title,
             start: input_target,
             description: 'This is a cool event',
+            className: input_target
             }
         ],
         plugins: ['dayGrid']
     });
     calendar.render();
-    calendar.setOption('height', 450);
+    calendar.setOption('height', 530);
     
 });
-
-
-
-function add(){
-    return '<div class="modal fade" id="click_modal" tabindex="-1" role="dialog" aria-labelledby="click_modal_title" aria-hidden="true">' +
-                '<div class="modal-dialog modal-dialog-centered" role="document">' +
-                    '<div class="modal-content">' +
-                        '<div class="modal-header">' +
-                            '<h5 class="modal-title" id="click_modal_title_01">제목</h5>' +
-                            '<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
-                                '<span aria-hidden="true">&times;</span>' +
-                            '</button>' +
-                        '</div>' +
-                        '<div class="modal-body">' +
-                            '<span class="text_inner"></span>'+
-                        '</div>'+
-                        '<div class="modal-footer">' +
-                            '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>' +
-                        '</div>' +
-                    '</div>' +
-                '</div>' +
-            '</div>'
-}
 
 function save(){
     content[input_target] = [input_title, input_value];
     
     var content_string = JSON.stringify(content);
     localStorage.setItem('content', content_string);
+
+
+    
 }
 function load(){
-    content_text = localStorage.getItem('content');                
+
+    content_text = localStorage.getItem('content');
     if(content_text==null) {
         content = {};
     } else {
@@ -61,12 +43,16 @@ function load(){
             title: content[key][0],
             start: key,
             description: content[key][1],
+            className: key
         });
         
-        $('.fc-title').append(add());
-        $('td>a>div.fc-content').attr('data-toggle', 'modal');
-        $('td>a>div.fc-content').attr('data-target', '#click_modal');
-        $('.text_inner').append(content[key][1]);
+        $('.fc-content-skeleton tbody td').attr('data-toggle', 'modal');
+        $('.fc-content-skeleton tbody td').attr('data-target', '#click_modal');
+        $('td.fc-day').attr('data-toggle', 'modal');
+        $('td.fc-day').attr('data-target', '#exampleModalCenter');
+
+
+
         
     }
     
@@ -78,9 +64,11 @@ function load(){
 }
 
 $(function(){
+
     load();
     $('td.fc-day').attr('data-toggle', 'modal');
     $('td.fc-day').attr('data-target', '#exampleModalCenter');
+
 
 
     $(document).on('click', 'td.fc-day', function(e) {
@@ -96,39 +84,58 @@ $(function(){
         calendar.addEvent({
             title: input_title,
             start: input_target,
-            description: 'This is a cool event'
+            description: 'This is a cool event',
+            className: input_target
         });
         // console.log(input_target);
         // console.log(input_title);                     시도는 했지만 성공은 못했따...
         // $(input_target).append(input_title);
         // $('td.fc-day').append('dkdkdk');
-        $('td>a>div>span.fc-title').append('<div class="modal fade click_modal" id="click_modal" tabindex="-1" role="dialog" aria-labelledby="click_modal" aria-hidden="true">' +
-                                                '<div class="modal-dialog modal-dialog-centered" role="document">' +
-                                                    '<div class="modal-content">' +
-                                                        '<div class="modal-header">' +
-                                                            '<h5 class="modal-title" id="exampleModalCenterTitle">제목</h5>' +
-                                                            '<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
-                                                                '<span aria-hidden="true">&times;</span>' +
-                                                            '</button>' +
-                                                        '</div>' +
-                                                        '<div class="modal-body">' +
-                                                            '<span class="text_inner"></span>'+
-                                                        '</div>'+
-                                                        '<div class="modal-footer">' +
-                                                            '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>' +
-                                                        '</div>' +
-                                                    '</div>' +
-                                                '</div>' +
-                                            '</div>');
-        $('td>a>div.fc-content').attr('data-toggle', 'modal');
-        $('td>a>div.fc-content').attr('data-target', '#click_modal');
-        $('.text_inner').append(input_value);
+
+        
         $('#input_title').val('');
         $('#input_value').val('');
-        
+        $('.text_inner').append(input_value); 
+        $('.fc-content-skeleton tbody td').attr('data-toggle', 'modal');
+        $('.fc-content-skeleton tbody td').attr('data-target', '#click_modal');
+        $('td.fc-day').attr('data-toggle', 'modal');
+        $('td.fc-day').attr('data-target', '#exampleModalCenter');
+
+        // window.location.reload();
         save();
         
     });
 
+    $('.fc-event-container').click(function(){
+        hard_key = $(this).children("a").attr('class').split(" ")[5];
+        content_text = localStorage.getItem('content');
+        if(content_text==null) {
+            content = {};
+        } else {
+            content = JSON.parse(content_text);
+        }
+        
+        $('.text_inner').text('');
+        $('.text_inner').append(content[hard_key][1]);
+        
+        
+    });
 
+
+    $('.btn_remove').click(function(){
+        $('.'+hard_key).remove();
+        
+        var data = localStorage.getItem("content");
+        data = JSON.parse(data);
+            delete data[hard_key]
+        localStorage.setItem("content", JSON.stringify(data))
+        // window.location.reload();
+        
+        // localStorage.clear();
+        
+
+        
+        
+        
+    });
 });

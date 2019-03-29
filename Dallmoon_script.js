@@ -206,79 +206,241 @@ $(document).ready(function(){
 //   $(".D_memo_load").click(function(e){
 //     e.preventDefault()
     
-//     var form_content = localStorage.getItem(D_memo_day);
+//     var form_content = localStorage.getItem(key);
 //     console.log(form_content)
-    // var split_data = form_content.split("&");
-    // console.log(split_data)
-    // console.log(form_content)
     
-    // for ( var i in split_data ) {
-    //     var content_data = split_data[i].split("=");
+    
+//     for ( var i in form_content ) {
+//         var content_data = form_content[i].split("=");
             
-    //     var key = decodeURIComponent(content_data[0]);
-    //     var data = decodeURIComponent(content_data[1]);
-    //     console.log(key,data);
-    //     $('#'+key).val(data);
+//         var key = decodeURIComponent(content_data[0]);
+//         var data = decodeURIComponent(content_data[1]);
+//         console.log(key,data);
+//         $('#'+key).val(data);
+//         $('.D_memo_form').append(
+//             "<div class='D_memo_box'>"+
+//             "<div class='D_memo_date'>"+"날짜"+":"+key+"</div>"
+//             +"<div class='D_memo_content'>"+data+"</div>"
+//             +"</div>"
+//         )
              
-    // }
-    // return false;
+//     }
+//     return false;
 
 // });
   
 
 
 
-$(".D_memo_submit").click(function(){
+// $(".D_memo_submit").click(
+//     function(){
 
-        var D_memo_day = new Date();
-        var memo_item = $('.D_memo_input').val()                               
-        var form_content = $('.D_memo_form').serialize();
+//         var D_memo_day = new Date();
+//         var memo_item = $('.D_memo_input').val()                               
+//         var form_content = $('.D_memo_form').serialize();
         
-        localStorage.setItem(D_memo_day, form_content);
-        $('.D_memo_form').append(
-            "<div class='D_memo_box'>"+
-            "<div class='D_memo_date'>"+"날짜"+":"+D_memo_day+"</div>"
-            +"<div class='D_memo_content'>"+memo_item+"</div>"
-            +"</div>"
-        )
+//         localStorage.setItem(D_memo_day, form_content);
+//         $('.D_memo_form').append(
+//             "<div class='D_memo_box'>"+
+//             "<div class='D_memo_date'>"+"날짜"+":"+D_memo_day+"</div>"
+//             +"<div class='D_memo_content'>"+"내용"+":"+memo_item+"</div>"
+//             +"</div>"
+//         )
 
         
 
-        return false;
+//         return false;
 
-});
+// });
+//메모--------------------------------------
+
+window.onload=function(e) {
+    e.preventDefault();
     
+    var D_memo = localStorage.getItem("D_memo")
+content_dict = JSON.parse(D_memo);
+   
+
+//사전형 전체데이터를 하나씩 꺼내서 처리하기.
+for (var key in content_dict) {
+    //해당 사전형 변수에서 하나의 값을 선택하여 꺼내기
+    var item = 
+    "<div class='D_memo_box'>"+
+              "<span class='D_memo_date' data-name='D_memo_date'>" + content_dict[key]["D_memo_date"] + "</span>" +
+              "<span class='D_memo_content'>" + content_dict[key]["D_memo_input"] + "</span>" +
+              '<button type="button" class="close D_close" data-dismiss="modal" aria-label="Close">'+
+              '<span aria-hidden="true">&times;</span>'+
+              '</button>'
+              "</div>"
+              
+    $('.D_memo_form').append(item)
+
+    
+};
+var D_bookmark = localStorage.getItem("D_bookmark")
+content_dict_b = JSON.parse(D_bookmark);
+   
+
+//사전형 전체데이터를 하나씩 꺼내서 처리하기.
+for (var key in content_dict_b) {
+    //해당 사전형 변수에서 하나의 값을 선택하여 꺼내기
+    var item = 
+    "<dt class='D_dt_list'><a href='"+content_dict_b[key]["D_site_url"]+"'"+">"+content_dict_b[key]["D_sitename"]+"</a>"+"<div class='D_site_url_hide'>"+content_dict_b[key]["D_sitename"]+"</div>"+
+              '<button type="button" class="close D_close_b" data-dismiss="modal" aria-label="Close">'+
+              '<span aria-hidden="true">&times;</span>'+
+              '</button>'
+              
+              
+    $('.D_bookmark_list').append(item)
+}
+
+
+
+};
+
+function Todo_input(D_memo_day,memo_item){
+    var line = $('.D_memo_box')
+    var data = {};
+    line.each(function(index) {
+
+      data[index] = {
+        D_memo_date: $('.D_memo_box:nth-child(' + (Number(index) +2) + ") span:nth-child(1)").text(), 
+        D_memo_input: $('.D_memo_box:nth-child(' + (Number(index) +2) + ") span:nth-child(2)").text(), 
+        
+        }
+        
+    })
+    localStorage.setItem('D_memo', JSON.stringify(data));
+    
+    };
+
+
   
+    $(".D_memo_submit").click(function(e){
+      e.preventDefault();
+      
+      var D_memo_day = new Date();
+      var memo_item = $("input[name='D_memo_input']").val()
+        if (memo_item == '') {
+                    alert ("내용을 입력해주세요."); return false ;
+                }
+                
+      
+      $('.D_memo_form').append(
+        "<div class='D_memo_box'>"+
+        "<span class='D_memo_date' data-name='D_memo_date'>"+"날짜"+":"+D_memo_day+"</span>"
+        +"<span class='D_memo_content'>"+"내용"+":"+memo_item+"</span>"
+        +'<button type="button" class="close D_close" data-dismiss="modal" aria-label="Close">'+
+        '<div aria-hidden="true">&times;</div>'+
+        '</button>'
+        +"</div>"
+    )
+    Todo_input(D_memo_day,memo_item);
+       return false;
+    });         
+    $('.D_memo_form').on(
+        'click','.D_close',function(){
+          $(this).parent().remove();
+          Todo_input();
+        }
+        
+      )
+         
+    
+    //타이머
+        
+             function timer(seconds) {
+                   seconds
+                   var a = setInterval(function() {
+                       if (seconds >= 1) {
+                           seconds = seconds - 1
+                       }
+                       if (seconds < 1) {
+                       clearInterval(a)
+                   }
+                   $('.D_timer_input').val(seconds)
+                   }, 1000)
+                   $('.D_stop').click(function(){
+                       clearInterval(a)
+                   })
+                   $('.D_reset').click(function(){
+                       $('.D_timer_input').val(0)
+                       clearInterval(a)
+                   })
+               }
+
+
+               $('.D_start').click(function(){
+                   timer($('.D_timer_input').val())
+               })
+                
+
+//북마크-----------------------------------------------------
+
+                $('.D_bookmark_save').click(function(){
+                    var D_sitename = $('input[name="D_sitename"]').val()
+                    var D_site_url = $('input[name="D_site_url"]').val()
+
+                    $('.D_bookmark_list').append(
+                        "<dt class='D_dt_list'><a href='"+D_site_url+"'"+">"+D_sitename+"</a>"+"<div class='D_site_url_hide'>"+D_site_url+"</div>"+'<button type="button" class="close D_close_b" data-dismiss="modal" aria-label="Close">'+
+                        '<span aria-hidden="true">&times;</span>'+
+                        '</button>'
+                    )
+                    bookmark_input(D_sitename,D_site_url)
+                    
+                })
+
+                function bookmark_input(D_sitename,D_site_url){
+                    var line = $('.D_dt_list')
+                    var data = {};
+                    line.each(function(index) {
+                
+                      data[index] = {
+                        D_sitename: $('.D_dt_list:nth-child(' + (Number(index) +1) + ") a:nth-child(1)").text(), 
+                        D_site_url: $('.D_dt_list:nth-child(' + (Number(index) +1) + ") div:nth-child(2)").text()
+                        
+                        }
+                        
+                    })
+                    localStorage.setItem('D_bookmark', JSON.stringify(data));
+                    
+                    };
+
+            
+                //     window.onload=function(e) {
+                //         e.preventDefault();
+                        
+                //         var D_bookmark = localStorage.getItem("D_bookmark")
+                //     content_dict_b = JSON.parse(D_bookmark);
+                       
+                    
+                //     //사전형 전체데이터를 하나씩 꺼내서 처리하기.
+                //     for (var key in content_dict_b) {
+                //         //해당 사전형 변수에서 하나의 값을 선택하여 꺼내기
+                //         var item = 
+                //         "<dt class='D_dt_list'><a href='"+content_dict_b[key]["D_site_url"]+"'"+">"+content_dict_b[key]["D_sitename"]+"</a>"+"<div class='D_site_url_hide'>"+content_dict_b[key]["D_sitename"]+"</div>"+
+                //                   '<button type="button" class="close D_close_b" data-dismiss="modal" aria-label="Close">'+
+                //                   '<span aria-hidden="true">&times;</span>'+
+                //                   '</button>'
+                                  
+                                  
+                //         $('.D_bookmark_list').append(item)
+                //     }
+                // }; 
+                    $('.D_bookmark_list').on(
+                        'click','.D_close_b',function(){
+                          $(this).parent().remove();
+                          bookmark_input();
+                        }
+                      )
+        
 
  
 
-
-//   var express = require('express');
-//   var app = express();
-//   var client_id = 'biWnm_EGxD53FCGrj9Dx';
-//   var client_secret = 'KbeSMUrFT9';
-//   var query = "번역할 문장을 입력하세요.";
-//   app.get('/translate', function (req, res) {
-//      var api_url = 'https://openapi.naver.com/v1/papago/n2mt';
-//      var request = require('request');
-//      var options = {
-//          url: api_url,
-//          form: {'source':'ko', 'target':'en', 'text':query},
-//          headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}
-//       };
-//      request.post(options, function (error, response, body) {
-//        if (!error && response.statusCode == 200) {
-//          res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
-//          res.end(body);
-//        } else {
-//          res.status(response.statusCode).end();
-//          console.log('error = ' + response.statusCode);
-//        }
-//      });
-//    });
-//    app.listen(5500, function () {
-//      console.log('http://127.0.0.1:5500/translate app listening on port 5500!');
-//    });
+              
   
 
 });
+
+
+
