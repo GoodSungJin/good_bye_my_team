@@ -260,3 +260,6 @@ p.current_date {
   opacity: 0.5;
 }
 
+.img_choose {
+  border:5px solid dodgerblue;
+}

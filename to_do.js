@@ -164,8 +164,8 @@ $(document).ready(function () {
 
     //  이미지를 클릭 했을 눈에 보이는 효과 ------------------------------------------------------------
     $('.back_img').click(function () {
-        $(this).css("border", "3px solid green");
-        //console.log($('#back_img1').attr('class'));
+        $('.back_img').removeClass('img_choose');
+        $(this).addClass('img_choose');
     })
 
 
