@@ -165,9 +165,11 @@ $(document).ready(function(){
     $(".D_hide_sidebar").click(function(){
         if ($('.D_sidebar').css("display") == "block"){
             $('.D_sidebar').hide("fast")
+            $('.D_hide_sidebar').attr('src','./images/enterence.png');
             }
             else{
                 $('.D_sidebar').show("fast")
+                $('.D_hide_sidebar').attr('src','./images/exit.png');
             }
 
             
