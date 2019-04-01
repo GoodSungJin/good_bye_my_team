@@ -104,8 +104,21 @@ function loadTodo() {
     }
 }
 
+// 이미지 저장----------------------------------------------------------------------------------------
+img_storage_key = "myimg";
+function saveImage() {
+    var todoimg = $('#slide1').css('background');
+    localStorage.setItem(img_storage_key, JSON.stringify(todoimg));
+}
+function loadImage() {
+    var todoimg = localStorage.getItem(img_storage_key);
+    todoimg = JSON.parse(todoimg);
+    $('#slide1').css('background',todoimg);
+}
+
 // 엔터키 입력 시 포스트잇이 생기고 to-do 내용 입력 -----------------------------------------------
 $(document).ready(function () {
+    loadImage();
     loadTodo();
 
     // load 하였을 때 클래스가 덮어써지는 문제 해결 -----------------------------------------------
@@ -172,21 +185,27 @@ $(document).ready(function () {
     // 이미지를 클릭 했을 때 배경 이미지 변경 --------------------------------------------------------
     $('#back_img1').click(function () {
         $('#slide1').css({ "background": "url(./images/night.jpg)", 'background-repeat': 'no-repeat', 'background-position': 'center', 'background-size': 'cover', 'height': '100%' });
+        saveImage();
     })
     $('#back_img2').click(function () {
         $('#slide1').css({ "background": "url(./images/macaroons.jpg)", 'background-repeat': 'no-repeat', 'background-position': 'center', 'background-size': 'cover', 'height': '100%' });
+        saveImage();
     })
     $('#back_img3').click(function () {
         $('#slide1').css({ "background": "url(./images/redpanda.jpg)", 'background-repeat': 'no-repeat', 'background-position': 'center', 'background-size': 'cover', 'height': '100%' });
+        saveImage();
     })
     $('#back_img4').click(function () {
         $('#slide1').css({ "background": "url(./images/vacation.jpg)", 'background-repeat': 'no-repeat', 'background-position': 'center', 'background-size': 'cover', 'height': '100%' });
+        saveImage();
     })
     $('#back_img5').click(function () {
         $('#slide1').css({ "background": "url(./images/steel_ladder.jpg)", 'background-repeat': 'no-repeat', 'background-position': 'center', 'background-size': 'cover', 'height': '100%' });
+        saveImage();
     })
     $('#back_img6').click(function () {
         $('#slide1').css({ "background": "url(./images/blue.jpg)", 'background-repeat': 'no-repeat', 'background-position': 'center', 'background-size': 'cover', 'height': '100%' });
+        saveImage();
     })
 });
 
