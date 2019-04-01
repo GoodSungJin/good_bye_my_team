@@ -125,7 +125,7 @@ $(document).ready(function () {
     // 엔터키 입력 시 to do 추가 ---------------------------------------------------------------
     $('.to_do_text').keydown(function (e) {
         var postit_length = $('.postit_text').length;
-        if (e.which == 13 && postit_length <= 4) {
+        if (e.which == 13 && postit_length <= 4 && $('.to_do_text').val() != '') {
             count++;
             var class_name = "hi" + count;
             add_todo_value = $('.to_do_text').val();
@@ -138,9 +138,9 @@ $(document).ready(function () {
             saveTodo();
             $('.to_do_text').val('');
             console.log('입력 :' + count);
-        } else if ($('.to_do_text').val() == '') {
-            console.log('no');
-        } else if (postit_length > 4) {
+        } else if (e.which == 13 && $('.to_do_text').val() == '') {
+            alert('내용을 입력하여 주세요.');
+        } else if (e.which == 13 && postit_length > 4) {
             $('.to_do_text').css('visibility', 'hidden');
         }
     });
