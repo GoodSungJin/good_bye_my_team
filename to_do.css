@@ -130,7 +130,7 @@ p.current_date {
   padding-right: 30px;
 } 
 
-.hi1 {
+/* .hi1 {
   position: absolute;
   right: 50px;
 }
@@ -154,9 +154,10 @@ p.current_date {
 .hi5 {
   position: absolute;
   left: 150px;
-}
+} */
 
 .postit_text  {
+  position: absolute;
   text-align: center;
   margin: 0;
   overflow: hidden;
@@ -260,3 +261,6 @@ p.current_date {
   opacity: 0.5;
 }
 
+.img_choose {
+  border:5px solid dodgerblue;
+}

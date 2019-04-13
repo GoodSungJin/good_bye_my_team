@@ -81,7 +81,7 @@ function saveTodo() {
     var data = {};
     var todos = $('.postit_text');
     todos.each(function (index) {
-        data[index] = [$(this).attr('data-value'), $(this).attr('class')];
+        data[index] = [$(this).attr('data-value'), $(this).attr('class'),$(this).css('top'), $(this).css('left')];
     });
     localStorage.setItem(storage_key, JSON.stringify(data));
 }
@@ -89,60 +89,86 @@ function saveTodo() {
 function loadTodo() {
     var todos = localStorage.getItem(storage_key);
     todos = JSON.parse(todos);
+    console.log(todos);
     for (var key in todos) {
         var value = todos[key][0];
         var class_value = todos[key][1];
+        var top_value = todos[key][2];
+        var left_value = todos[key][3];
         sample_item = $(list_item).clone();
         sample_item.find(".postit_text").append(value);
         sample_item.find(".postit_text").attr("data-value", value);
         sample_item.find(".postit_text").attr("class", class_value);
+        sample_item.find(".postit_text").css("top", top_value);
+        sample_item.find(".postit_text").css("left", left_value);
         $(".postit_wrapper").append(sample_item);
         dragAll(class_value);
     }
-    if ($(".postit_text").length > 4) {
-        $(".to_do_text").css("visibility", "hidden");
-    }
+    // if ($(".postit_text").length > 4) {
+    //     $(".to_do_text").css("visibility", "hidden");
+    // }
+}
+
+// 이미지 저장----------------------------------------------------------------------------------------
+img_storage_key = "myimg";
+function saveImage() {
+    var todoimg = $('#slide1').css('background');
+    localStorage.setItem(img_storage_key, JSON.stringify(todoimg));
+}
+function loadImage() {
+    var todoimg = localStorage.getItem(img_storage_key);
+    todoimg = JSON.parse(todoimg);
+    $('#slide1').css('background',todoimg);
 }
 
 // 엔터키 입력 시 포스트잇이 생기고 to-do 내용 입력 -----------------------------------------------
 $(document).ready(function () {
+    loadImage();
     loadTodo();
 
     // load 하였을 때 클래스가 덮어써지는 문제 해결 -----------------------------------------------
-    if ($('.postit_text').length == 1) {
-        count = 1;
-    } else if ($('.postit_text').length == 2) {
-        count = 2;
-    } else if ($('.postit_text').length == 3) {
-        count = 3;
-    } else if ($('.postit_text').length == 4) {
-        count = 4;
-    }
-    else {
-        count = 0;
-    }
-    console.log('if count : '+count);
+    // if ($('.postit_text').length == 1) {
+    //     count = 1;
+    // } else if ($('.postit_text').length == 2) {
+    //     count = 2;
+    // } else if ($('.postit_text').length == 3) {
+    //     count = 3;
+    // } else if ($('.postit_text').length == 4) {
+    //     count = 4;
+    // }
+    // else {
+    //     count = 0;
+    // }
+    // console.log('if count : '+count);
     // 엔터키 입력 시 to do 추가 ---------------------------------------------------------------
+    var count = 0;
     $('.to_do_text').keydown(function (e) {
-        var postit_length = $('.postit_text').length;
-        if (e.which == 13 && postit_length <= 4) {
+        // var postit_length = $('.postit_text').length;
+        if (e.which == 13 && $('.to_do_text').val() != '') {
+            // postit_length <= 4 &&
             count++;
             var class_name = "hi" + count;
+            var top_index = Math.floor(Math.random() * 500);
+            var left_index = Math.floor(Math.random() * 1000);
+            // console.log(number_index);
             add_todo_value = $('.to_do_text').val();
             sample_item = $(list_item).clone();
             sample_item.find('.postit_text').append(add_todo_value);
             sample_item.find('.postit_text').attr("data-value", add_todo_value);
+            // var class_name = sample_item.find(".postit_text").attr("class");
             sample_item.find('.postit_text').addClass(class_name);
+            sample_item.find('.postit_text').css({"top":top_index,"left":left_index});
             $('.postit_wrapper').append(sample_item);
             dragAll(class_name);
             saveTodo();
             $('.to_do_text').val('');
-            console.log('입력 :' + count);
-        } else if ($('.to_do_text').val() == '') {
-            console.log('no');
-        } else if (postit_length > 4) {
-            $('.to_do_text').css('visibility', 'hidden');
+            // console.log('입력 :' + count);
+        } else if (e.which == 13 && $('.to_do_text').val() == '') {
+            alert('내용을 입력하여 주세요.');
         }
+        // } else if (e.which == 13 && postit_length > 4) {
+        //     $('.to_do_text').css('visibility', 'hidden');
+        // }
     });
 
     // 클릭하면 this가 가리키는 부모 태그를 삭제-------------------------------------------------
@@ -150,11 +176,11 @@ $(document).ready(function () {
         e.preventDefault();
         $(this).parent().remove();
         saveTodo();
-        count--;
-        console.log('삭제 :'+ count);
-        if ($('.postit_text').length < 5) {
-            $('.to_do_text').css('visibility', 'visible');
-        }
+        // count--;
+        // console.log('삭제 :'+ count);
+        // if ($('.postit_text').length < 5) {
+        //     $('.to_do_text').css('visibility', 'visible');
+        // }
     });
 
     // 배경화면 바꾸는 모달창 띄우기 ------------------------------------------------------------
@@ -164,29 +190,35 @@ $(document).ready(function () {
 
     //  이미지를 클릭 했을 눈에 보이는 효과 ------------------------------------------------------------
     $('.back_img').click(function () {
-        $(this).css("border", "3px solid green");
-        //console.log($('#back_img1').attr('class'));
+        $('.back_img').removeClass('img_choose');
+        $(this).addClass('img_choose');
     })
 
 
     // 이미지를 클릭 했을 때 배경 이미지 변경 --------------------------------------------------------
     $('#back_img1').click(function () {
         $('#slide1').css({ "background": "url(./images/night.jpg)", 'background-repeat': 'no-repeat', 'background-position': 'center', 'background-size': 'cover', 'height': '100%' });
+        saveImage();
     })
     $('#back_img2').click(function () {
         $('#slide1').css({ "background": "url(./images/macaroons.jpg)", 'background-repeat': 'no-repeat', 'background-position': 'center', 'background-size': 'cover', 'height': '100%' });
+        saveImage();
     })
     $('#back_img3').click(function () {
         $('#slide1').css({ "background": "url(./images/redpanda.jpg)", 'background-repeat': 'no-repeat', 'background-position': 'center', 'background-size': 'cover', 'height': '100%' });
+        saveImage();
     })
     $('#back_img4').click(function () {
         $('#slide1').css({ "background": "url(./images/vacation.jpg)", 'background-repeat': 'no-repeat', 'background-position': 'center', 'background-size': 'cover', 'height': '100%' });
+        saveImage();
     })
     $('#back_img5').click(function () {
         $('#slide1').css({ "background": "url(./images/steel_ladder.jpg)", 'background-repeat': 'no-repeat', 'background-position': 'center', 'background-size': 'cover', 'height': '100%' });
+        saveImage();
     })
     $('#back_img6').click(function () {
         $('#slide1').css({ "background": "url(./images/blue.jpg)", 'background-repeat': 'no-repeat', 'background-position': 'center', 'background-size': 'cover', 'height': '100%' });
+        saveImage();
     })
 });
 
@@ -196,7 +228,7 @@ $(document).ready(function () {
 function dragAll(className) {
     // Make the DIV element draggable:
     var item = document.getElementsByClassName(className)[0];
-
+    // console.log(className);
     let x, y;
 
     function move(e) {
