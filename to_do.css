@@ -1,0 +1,266 @@
+
+* {box-sizing:border-box}
+
+body,html {
+    height: 100%;
+    margin: 0;
+}
+
+#slide1 {
+    background: url('./images/blue.jpg');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#slide2 {
+    background: url('./images/minions.jpg');
+    height: 100vh;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+ 
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  min-width: 700px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #ddd;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  /* margin-bottom: 112.5px; */
+}
+
+.active, .dot:hover {
+  background-color: white;
+}
+
+div.clock {
+    color: white;
+    font-weight: 600;
+    font-size: 7.725rem;
+    text-align: left;
+    width: 460px;
+    margin: 0 auto;
+}
+
+span.ampm {
+    color: white;
+    font-weight: 600;
+    font-size:2.725rem;
+    text-align: center;
+    display: inline-block;
+}
+
+div.date {
+    color: white;
+    font-weight: 400;
+    font-size:1.725rem;
+    text-align: center;
+    margin-top: 12rem;
+}
+
+span.tictok,p.current_date {
+    margin: 0;
+}
+
+span.tictok {
+  display: inline-block;
+  width: 385px;
+}
+
+
+p.current_date {
+    padding-right: 355px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.ghost {
+    visibility: hidden;
+}
+
+.to_do_text {
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size:20px;
+    font-weight: 700;
+    background-color: rgba(255, 255, 255, 0.0);
+    outline: none;
+    width: 37%;
+}
+
+.to_do_text_wrapper {
+    text-align: center;
+    margin-bottom: 15rem;
+}
+
+ .postit > div{
+  background: url('./images/post.png');
+  display: block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 15rem;
+  height: 15rem;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+} 
+
+/* .hi1 {
+  position: absolute;
+  right: 50px;
+}
+
+.hi2 {
+  position: absolute;
+  bottom: 100px;
+  right: 50px;
+}
+.hi3 {
+ 
+  position: absolute;
+  top:300px;
+  left: 10px;
+}
+.hi4 {
+  position: absolute;
+  right: 250px;
+}
+
+.hi5 {
+  position: absolute;
+  left: 150px;
+} */
+
+.postit_text  {
+  position: absolute;
+  text-align: center;
+  margin: 0;
+  overflow: hidden;
+}
+
+.delete_postit {
+  visibility: hidden;
+}
+
+.postit > div:hover .delete_postit{
+  color: red;
+  visibility: visible;
+}
+
+.delete_postit {
+  padding-left:100px;
+}
+
+#dragPostIt {
+  cursor: move;
+}
+
+/* .change_img {
+  position: absolute;
+  bottom: 50px;
+  right: 100px;
+} */
+
+.toggle_img {
+    display:block;
+    position: absolute;
+    bottom:25px;
+    right:140px;
+    cursor: pointer;
+}
+
+.chimg_modal {
+  display: none; /* Hidden by default */
+  position: absolute; /* Stay in place */
+  z-index: 3; /* Sit on top */
+  right: 140px;
+  bottom: 70px; 
+  width: 360px; /* Full width */
+  height: 210px; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  /* background-color: rgb(0,0,0); Fallback color */
+  /* background-color: rgba(0,0,0,0.4); Black w/ opacity */
+  background-color: white;
+  border-radius: 4px;
+}
+
+.img_theme {
+   height: 50px;
+   background-color: white;
+   border-bottom: 1px solid #ddd;
+   text-align: center;
+   font-size: 2rem;
+   font-weight: 600;
+   color: gray;
+}
+
+.back_img {
+  height: 65px;
+  width: 100px;
+  border:1px solid #ddd;
+  display:inline-block;
+  cursor: pointer;
+  background-color: black;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.back_wrapper  {
+  padding-top:12px;
+  padding-left: 25px;
+}
+
+.theme_img {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius:3px;
+}
+
+.img_name {
+  display:none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+}
+
+.back_img:hover .img_name{
+  display:block;
+}
+.back_img:hover .theme_img{
+  opacity: 0.5;
+}
+
+.img_choose {
+  border:5px solid dodgerblue;
+}

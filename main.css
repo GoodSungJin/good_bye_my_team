@@ -1,0 +1,39 @@
+.modal-header{
+    padding: 0.5rem 1rem!important;
+}
+
+body>.modal-backdrop{
+    opacity: unset!important;
+}
+
+body>.modal-backdrop{
+    z-index: unset!important;
+    background-color: unset!important;
+}
+
+.fc-content {
+    background-color: #5a5a5a;
+}
+
+/* span{
+    font-size: 1.3em;
+} */
+
+#calendar{
+    width: 73em;
+    margin: 0 auto;
+    margin-bottom: 1%;
+    z-index: -1;
+    color:pink;
+    font-weight: 700;
+    
+}
+
+.fc-view > table{
+    background: rgba(0, 0, 0, 0.3);
+
+}
+
+.fc-unthemed td.fc-today {
+    background: #bf292999!important;
+}

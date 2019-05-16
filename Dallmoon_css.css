@@ -1,0 +1,336 @@
+.D_sidebar{
+    width:40px;
+    background-color:#fff;
+    position:fixed;
+    top:0;
+    bottom:0;
+    right:0%;
+    border-style:solid;
+    border-right:none;
+    border-bottom:none;
+    border-width:0.5px;
+    
+    
+    
+     
+}
+
+.D_sideicon1{
+    width:30px;
+    height:auto;
+    margin:0px;
+    padding: 5px;
+    background-color: #fff;
+    
+   
+}
+.D_sideicon{
+    width:30px;
+    height:auto;
+    margin:0px;
+    padding: 5px;
+    background-color: #fff;
+}
+div.D_sideicon{
+    background-color:white;
+}
+img.D_sideicon1:hover{
+    
+
+    transition: transform .10s;  
+    -o-transition: transform .10s;
+    -moz-transition: transform .10s;
+    -webkit-transition: transform .10s;
+   
+    transform:scale(1.5); /* 마우스 오버시 이미지 크기를 1.1 배만큼 확대시킨다. */
+    -o-transform:scale(1.5); 
+    -moz-transform:scale(1.5);
+    -webkit-transform:scale(1.5);
+
+   box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2), 3px 3px 10px 0 rgba(0,0,0,0.19);
+    
+
+}
+
+.link_image{
+    display:none;
+}
+.content-container {
+    position: relative;
+}
+.D_sideicon_sub{
+    display:none;
+    background-color: #fff;
+    width:60px;
+    padding:5px;
+    right:40px;
+    top: 5px;
+    position: absolute;
+    text-align: center;
+    border-style:solid;
+    border-width:0.5px;
+    z-index: 100;
+}
+.D_sidebar_sub{
+    width:0;
+    background-color:#fff;
+    position:fixed;
+    top:0;
+    bottom:0;
+    right:40px;
+   
+    z-index:5;
+    overflow: auto;
+    transition: all 0.5s;
+}
+.D_sidebar_sub.active {
+    width: 385px;
+}
+
+
+body{
+   
+   display: inline-block;
+}
+html{
+    display: inline-block; /*나중에 body 태그와 함께 삭제*/
+}
+.D_sidebar_sub_quick_search{
+    display:none;
+}
+.D_sidebar_sub_memo{
+    display:none;
+}
+.D_sidebar_sub_bookmark{
+    display:none;
+    margin:10px;
+    margin-left:20px;
+}
+.D_sidebar_sub_music{
+    display:none;
+}
+.D_sidebar_sub_translation{
+    display:none;
+    width:30vw;
+    height:70vh;
+}
+.D_sidebar_sub_plus{
+    display:none;
+}
+.D_sidebar_sub_tools{
+    display:none;
+}
+.D_tools_sub2{
+    border-style:solid;
+    border-width:1px;
+    border-color: #acacac;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    width:385px;
+    line-height:40px;
+    display: inline-block;
+    vertical-align: middle;
+    
+}
+.D_tools_sub2:hover{
+    background-color: #d5d5d5;
+    cursor: pointer;
+    
+}
+.D_tools_sub1{
+    border-style:solid;
+    border-width:2px;
+    border-color: #acacac;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    width:385px;
+    line-height:50px;
+}
+.D_tools_sub1_title{
+    margin-left:15px;
+    
+    font-size:25px;
+    font-weight: 600;
+}
+.D_timer{
+    margin-left:20px;
+    display: inline-block;
+    font-size:15px;
+}
+.D_calc{
+    margin-left:20px;
+    display: inline-block;
+    font-size:15px;
+}
+.D_papago{
+    margin-left:20px;
+    display: inline-block;
+    font-size:15px;
+}
+.D_economy{
+    margin-left:20px;
+    display: inline-block;
+    font-size:15px;
+}
+.D_arrow{
+    
+    height:25px;
+    width:auto;
+    float:right;
+    margin-right:10px;
+    margin-top:10px;
+    
+}
+.D_memo_sub1{
+    border-style:solid;
+    border-width:2px;
+    border-color: #acacac;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    width:385px;
+    line-height:50px;
+}
+.D_memo_sub1_title{
+    margin-left:15px;
+    
+    font-size:25px;
+    font-weight: 600;
+}
+html {
+
+    scrollbar-arrow-color:#fff;
+    scrollbar-base-color:#fff;
+        scrollbar-3dlight-color:#fff;
+        scrollbar-darkshadow-color:#fff;
+        scrollbar-face-color:#fff;
+    scrollbar-highlight-color:#fff;
+        scrollbar-shadow-color:#fff;
+        scrollbar-track-color:#fff;
+}
+
+
+
+::-webkit-scrollbar {
+
+    width:0px;
+
+    height:0px;
+
+    border:0;
+
+}
+
+
+
+::-webkit-scrollbar-track {
+
+    background : #fff;
+
+    -webkit-border-radius:5px;
+
+    border-radius:5px;
+
+}
+.D_timer_sub{
+    
+    display: none;
+    
+   
+}
+.D_calc_sub{
+   
+    display: none;
+    margin:10px;
+    box-shadow: 3px 4px 4px 3px rgba(0,0,0,0), 3px 3px 3px 3px rgba(0,0,0,0);
+
+   
+}
+.D_papago_sub{
+    
+    display: none;
+    margin-left:40px;
+   
+}
+.D_economy_sub{
+    
+    display: none;
+    margin-left:40px;
+   
+}
+iframe{
+    width:100%;
+    height:140%;
+}
+.D_memo_date{
+    margin:10px;
+    font-size:13px;
+}
+.D_memo_box{
+    background-color:rgb(195, 185, 239,0.5);
+    box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.2), 3px 3px 10px 0 rgba(0,0,0,0.19);
+    border-color: violet;
+    border-width: 5px;
+    border-style:solid;
+    border-bottom:none;
+    border-right:none;
+    border-top:none;
+    
+}
+.D_memo_content{
+    margin:20px;
+}
+DT>a{
+    color:black;
+}
+.D_bookmark_star{
+    display:inline-block;
+    width:30px;
+    height:auto;
+    vertical-align: middle;
+}
+DL>p{
+    display:inline-block;
+}
+DT>h3{
+    display: inline-block;
+    margin-right:100px;
+    margin-bottom: 0px;
+    vertical-align: middle;
+}
+
+.form-control{
+    width:270px;
+    display:inline-block;
+}
+.D_memo_submit{
+    margin-left:46px;
+    margin-bottom:5px;
+}
+.D_memo_form_div{
+    margin-bottom:10px;
+    margin-left:3px;
+    margin-right:3px;
+    border:0px;
+    border-bottom-style:groove;
+    border-bottom-width:1px;
+    line-height: 50px;
+    padding-bottom:10px;
+    padding-top:10px;
+}
+.fade{
+    display: none;
+}
+.D_site_url_hide{
+    display: none;
+}
+.D_hide_sidebar{
+    position: absolute;
+    bottom:26px;
+    right: 60px;
+}
+.displayText {
+    line-height: 70px;
+}
